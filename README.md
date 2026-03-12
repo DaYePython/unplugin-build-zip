@@ -1,45 +1,47 @@
-# unplugin-starter
+# unplugin-build-zip
 
-[![NPM version](https://img.shields.io/npm/v/unplugin-starter?color=a1b858&label=)](https://www.npmjs.com/package/unplugin-starter)
+[![NPM version](https://img.shields.io/npm/v/unplugin-build-zip?color=a1b858&label=)](https://www.npmjs.com/package/unplugin-build-zip)
 
-Starter template for [unplugin](https://github.com/unjs/unplugin).
+一个 [unplugin](https://github.com/unjs/unplugin) 插件，在构建完成后自动将产物目录压缩为 `.zip` 文件，并可选地将文件复制到系统剪切板、发送桌面通知。
 
-## Template Usage
+## 功能
 
-To use this template, clone it down using:
+-  **自动压缩**  build 完成后将 `outDir` 打包为 zip，生成位置与产物目录同级
+-  **复制到剪切板**  将 zip 文件（文件拖放格式）写入系统剪切板，可直接粘贴到文件夹
+-  **桌面通知**  通过系统原生通知告知构建完成（Windows / macOS / Linux）
+-  **跨构建工具**  基于 unplugin，支持 Vite、Rollup、Rolldown、webpack、rspack、esbuild
 
-```bash
-npx degit unplugin/unplugin-starter my-unplugin
-```
-
-And do a global replacement of `unplugin-starter` with your plugin name.
-
-Then you can start developing your unplugin 🔥
-
-To test your plugin, run: `pnpm run dev`
-To release a new version, run: `pnpm run release`
-
-## Install
+## 安装
 
 ```bash
-npm i unplugin-starter
+npm i -D unplugin-build-zip
+# or
+pnpm add -D unplugin-build-zip
+# or
+yarn add -D unplugin-build-zip
 ```
+
+## 使用
 
 <details>
 <summary>Vite</summary><br>
 
 ```ts
 // vite.config.ts
-import Starter from 'unplugin-starter/vite'
+import BuildZip from 'unplugin-build-zip/vite'
 
 export default defineConfig({
   plugins: [
-    Starter({ /* options */ }),
+    BuildZip({
+      // filename: 'my-app',     // 自定义 zip 名称，默认取 outDir basename（如 dist）
+      // copyToClipboard: true,  // 完成后将 zip 文件复制到剪切板
+      // notify: true,           // 完成后发送系统桌面通知
+    }),
   ],
 })
 ```
 
-Example: [`playground/`](./playground/)
+示例：[`playground/`](./playground/)
 
 <br></details>
 
@@ -48,11 +50,11 @@ Example: [`playground/`](./playground/)
 
 ```ts
 // rollup.config.js
-import Starter from 'unplugin-starter/rollup'
+import BuildZip from 'unplugin-build-zip/rollup'
 
 export default {
   plugins: [
-    Starter({ /* options */ }),
+    BuildZip({ /* options */ }),
   ],
 }
 ```
@@ -65,10 +67,9 @@ export default {
 ```ts
 // webpack.config.js
 module.exports = {
-  /* ... */
   plugins: [
-    require('unplugin-starter/webpack')({ /* options */ })
-  ]
+    require('unplugin-build-zip/webpack')({ /* options */ }),
+  ],
 }
 ```
 
@@ -78,30 +79,12 @@ module.exports = {
 <summary>Nuxt</summary><br>
 
 ```ts
-// nuxt.config.js
+// nuxt.config.ts
 export default defineNuxtConfig({
   modules: [
-    ['unplugin-starter/nuxt', { /* options */ }],
+    ['unplugin-build-zip/nuxt', { /* options */ }],
   ],
 })
-```
-
-> This module works for both Nuxt 2 and [Nuxt Vite](https://github.com/nuxt/vite)
-
-<br></details>
-
-<details>
-<summary>Vue CLI</summary><br>
-
-```ts
-// vue.config.js
-module.exports = {
-  configureWebpack: {
-    plugins: [
-      require('unplugin-starter/webpack')({ /* options */ }),
-    ],
-  },
-}
 ```
 
 <br></details>
@@ -112,11 +95,46 @@ module.exports = {
 ```ts
 // esbuild.config.js
 import { build } from 'esbuild'
-import Starter from 'unplugin-starter/esbuild'
+import BuildZip from 'unplugin-build-zip/esbuild'
 
 build({
-  plugins: [Starter()],
+  plugins: [BuildZip()],
 })
 ```
 
 <br></details>
+
+## 配置项
+
+| 选项 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| `filename` | `string` | `outDir` 的 basename（如 `dist`） | 生成的 zip 文件名，不含 `.zip` 后缀 |
+| `copyToClipboard` | `boolean` | `true` | 完成后将 zip 文件本身（文件拖放格式）写入系统剪切板，可直接 Ctrl+V / +V 粘贴到文件夹 |
+| `notify` | `boolean` | `true` | 完成后发送系统桌面通知 |
+
+## 平台支持
+
+| 功能 | Windows | macOS | Linux |
+|------|---------|-------|-------|
+| 复制文件到剪切板 | PowerShell `SetFileDropList` | `osascript` | `xclip` / `xsel`（需系统安装） |
+| 桌面通知 | PowerShell `NotifyIcon` 气泡 | `osascript` | `notify-send`（需系统安装 `libnotify`） |
+
+## 开发
+
+```bash
+# 安装依赖
+pnpm install
+
+# 构建
+pnpm build
+
+# 监听模式
+pnpm dev
+
+# 运行 playground
+pnpm play
+```
+
+## License
+
+[MIT](./LICENSE)
