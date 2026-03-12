@@ -1,11 +1,10 @@
 {
-  "name": "unplugin-starter",
+  "name": "unplugin-build-zip",
   "type": "module",
   "version": "0.1.0",
-  "packageManager": "pnpm@10.11.0",
-  "description": "",
+  "description": "An unplugin that zips the build output directory after a successful build",
   "license": "MIT",
-  "homepage": "https://github.com/antfu/unplugin-starter#readme",
+  "homepage": "https://github.com/unplugin/unplugin-starter#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/antfu/unplugin-starter.git"
@@ -18,7 +17,8 @@
     "vite",
     "webpack",
     "rollup",
-    "transform"
+    "build",
+    "zip"
   ],
   "exports": {
     ".": "./dist/index.js",
@@ -90,12 +90,14 @@
     }
   },
   "dependencies": {
+    "archiver": "^7.0.1",
     "unplugin": "^2.3.4"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^4.13.2",
     "@nuxt/kit": "^3.17.4",
     "@nuxt/schema": "^3.17.4",
+    "@types/archiver": "^7.0.0",
     "@types/node": "^22.15.21",
     "bumpp": "^10.1.1",
     "eslint": "^9.27.0",
@@ -107,5 +109,6 @@
     "vite": "^6.3.5",
     "vitest": "^3.1.4",
     "webpack": "^5.99.9"
-  }
+  },
+  "packageManager": "pnpm@10.14.0+sha512.ad27a79641b49c3e481a16a805baa71817a04bbe06a38d17e60e2eaee83f6a146c6a688125f5792e48dd5ba30e7da52a5cda4c3992b9ccf333f9ce223af84748"
 }
