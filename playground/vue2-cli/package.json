@@ -1,0 +1,16 @@
+{
+  "name": "vue2-cli-playground",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "vue": "^2.7.14"
+  },
+  "devDependencies": {
+    "@tonywater/unplugin-build-zip": "workspace:*",
+    "@vue/cli-service": "~5.0.0",
+    "vue-template-compiler": "^2.7.14"
+  }
+}
