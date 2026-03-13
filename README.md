@@ -93,9 +93,9 @@ export default defineNuxtConfig({
 <summary>esbuild</summary><br>
 
 ```ts
+import BuildZip from '@tonywater/unplugin-build-zip/esbuild'
 // esbuild.config.js
 import { build } from 'esbuild'
-import BuildZip from '@tonywater/unplugin-build-zip/esbuild'
 
 build({
   plugins: [BuildZip()],
