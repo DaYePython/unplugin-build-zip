@@ -1,6 +1,6 @@
-# unplugin-build-zip
+# @tonywater/unplugin-build-zip
 
-[![NPM version](https://img.shields.io/npm/v/unplugin-build-zip?color=a1b858&label=)](https://www.npmjs.com/package/unplugin-build-zip)
+[![NPM version](https://img.shields.io/npm/v/@tonywater/unplugin-build-zip?color=a1b858&label=)](https://www.npmjs.com/package/@tonywater/unplugin-build-zip)
 
 一个 [unplugin](https://github.com/unjs/unplugin) 插件，在构建完成后自动将产物目录压缩为 `.zip` 文件，并可选地将文件复制到系统剪切板、发送桌面通知。
 
@@ -14,11 +14,11 @@
 ## 安装
 
 ```bash
-npm i -D unplugin-build-zip
+npm i -D @tonywater/unplugin-build-zip
 # or
-pnpm add -D unplugin-build-zip
+pnpm add -D @tonywater/unplugin-build-zip
 # or
-yarn add -D unplugin-build-zip
+yarn add -D @tonywater/unplugin-build-zip
 ```
 
 ## 使用
@@ -28,7 +28,7 @@ yarn add -D unplugin-build-zip
 
 ```ts
 // vite.config.ts
-import BuildZip from 'unplugin-build-zip/vite'
+import BuildZip from '@tonywater/unplugin-build-zip/vite'
 
 export default defineConfig({
   plugins: [
@@ -50,7 +50,7 @@ export default defineConfig({
 
 ```ts
 // rollup.config.js
-import BuildZip from 'unplugin-build-zip/rollup'
+import BuildZip from '@tonywater/unplugin-build-zip/rollup'
 
 export default {
   plugins: [
@@ -68,7 +68,7 @@ export default {
 // webpack.config.js
 module.exports = {
   plugins: [
-    require('unplugin-build-zip/webpack')({ /* options */ }),
+    require('@tonywater/unplugin-build-zip/webpack')({ /* options */ }),
   ],
 }
 ```
@@ -82,7 +82,7 @@ module.exports = {
 // nuxt.config.ts
 export default defineNuxtConfig({
   modules: [
-    ['unplugin-build-zip/nuxt', { /* options */ }],
+    ['@tonywater/unplugin-build-zip/nuxt', { /* options */ }],
   ],
 })
 ```
@@ -95,7 +95,7 @@ export default defineNuxtConfig({
 ```ts
 // esbuild.config.js
 import { build } from 'esbuild'
-import BuildZip from 'unplugin-build-zip/esbuild'
+import BuildZip from '@tonywater/unplugin-build-zip/esbuild'
 
 build({
   plugins: [BuildZip()],

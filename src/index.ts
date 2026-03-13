@@ -133,7 +133,7 @@ export const unpluginFactory: UnpluginFactory<Options | undefined> = (options = 
   let root = process.cwd()
 
   return {
-    name: 'unplugin-build-zip',
+    name: '@tonywater/unplugin-build-zip',
 
     vite: {
       configResolved(config: ResolvedConfig) {

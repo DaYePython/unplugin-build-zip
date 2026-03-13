@@ -1,5 +1,5 @@
 {
-  "name": "unplugin-build-zip",
+  "name": "@tonywater/unplugin-build-zip",
   "type": "module",
   "version": "0.1.0",
   "description": "An unplugin that zips the build output directory after a successful build",
