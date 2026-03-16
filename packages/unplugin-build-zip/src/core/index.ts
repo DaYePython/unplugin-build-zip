@@ -76,6 +76,9 @@ export const unpluginFactory: UnpluginFactory<Options | undefined> = (options = 
 
     rollup: {
       async writeBundle(options) {
+        if (!options) {
+          return
+        }
         outDir = options.dir || 'dist'
         const outDirAbsolute = path.isAbsolute(outDir)
           ? outDir
