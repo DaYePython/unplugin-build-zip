@@ -19,6 +19,7 @@ export const unpluginFactory: UnpluginFactory<Options | undefined> = (options = 
   let outDir = 'dist'
   let root = process.cwd()
   let isViteBuild = false
+  let isWebpackBuild = false
 
   const doZip = async (outDirAbsolute: string): Promise<void> => {
     if (!fs.existsSync(outDirAbsolute)) {
@@ -97,9 +98,15 @@ export const unpluginFactory: UnpluginFactory<Options | undefined> = (options = 
     },
 
     webpack(compiler) {
+      isWebpackBuild = compiler.options.mode === 'production'
+
       compiler.hooks.done.tapPromise('@tonywater/unplugin-build-zip', async (stats) => {
         if (stats.hasErrors())
           return
+
+        if (!isWebpackBuild) {
+          return
+        }
 
         outDir = compiler.options.output.path || path.resolve(process.cwd(), 'dist')
         root = compiler.context || process.cwd()
