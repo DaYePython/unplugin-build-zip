@@ -12,6 +12,7 @@ import { copyFileToClipboard, sendSystemNotify, zipDirectory } from './utils'
 export const unpluginFactory: UnpluginFactory<Options | undefined> = (options = {}) => {
   const {
     filename: customFilename,
+    folder,
     copyToClipboard = true,
     notify = true,
   } = options
@@ -36,7 +37,7 @@ export const unpluginFactory: UnpluginFactory<Options | undefined> = (options = 
     if (fs.existsSync(zipPath))
       fs.unlinkSync(zipPath)
 
-    await zipDirectory(outDirAbsolute, zipPath)
+    await zipDirectory(outDirAbsolute, zipPath, folder)
 
     const display = path.relative(root, zipPath).replace(/\\/g, '/')
     // eslint-disable-next-line no-console

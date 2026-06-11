@@ -34,6 +34,7 @@ export default defineConfig({
   plugins: [
     BuildZip({
       // filename: 'my-app',     // 自定义 zip 名称，默认取 outDir basename（如 dist）
+      // folder: 'my-app',       // zip 内嵌文件夹名称，未配置时直接压缩 outDir 内容
       // copyToClipboard: true,  // 完成后将 zip 文件复制到剪切板
       // notify: true,           // 完成后发送系统桌面通知
     }),
@@ -109,6 +110,7 @@ build({
 | 选项 | 类型 | 默认值 | 说明 |
 |------|------|--------|------|
 | `filename` | `string` | `outDir` 的 basename（如 `dist`） | 生成的 zip 文件名，不含 `.zip` 后缀 |
+| `folder` | `string` | `undefined` | zip 内嵌文件夹名称；未配置时直接压缩 `outDir` 内容，配置后 zip 内会包裹一层同名文件夹 |
 | `copyToClipboard` | `boolean` | `true` | 完成后将 zip 文件本身（文件拖放格式）写入系统剪切板，可直接 Ctrl+V / +V 粘贴到文件夹 |
 | `notify` | `boolean` | `true` | 完成后发送系统桌面通知 |
 

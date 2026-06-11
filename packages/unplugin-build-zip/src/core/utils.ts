@@ -7,16 +7,17 @@ import archiver from 'archiver'
  * 压缩指定目录为 zip 文件
  * @param sourceDir 源目录路径
  * @param outputPath 输出路径
+ * @param folder zip 内嵌文件夹名称
  * @returns Promise<void>
  */
-export function zipDirectory(sourceDir: string, outputPath: string): Promise<void> {
+export function zipDirectory(sourceDir: string, outputPath: string, folder?: string): Promise<void> {
   return new Promise((resolve, reject) => {
     const output = fs.createWriteStream(outputPath)
     const archive = archiver('zip', { zlib: { level: 9 } })
     output.on('close', resolve)
     archive.on('error', reject)
     archive.pipe(output)
-    archive.directory(sourceDir, false)
+    archive.directory(sourceDir, folder || false)
     archive.finalize()
   })
 }

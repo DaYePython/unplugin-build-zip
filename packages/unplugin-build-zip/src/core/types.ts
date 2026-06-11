@@ -5,6 +5,11 @@ export interface Options {
    */
   filename?: string
   /**
+   * zip 内嵌文件夹名称
+   * 未配置时，保持当前行为：直接压缩输出目录中的文件
+   */
+  folder?: string
+  /**
    * 完成后将 zip 文件本身（文件拖放格式）复制到系统剪切板
    * @default true
    */
