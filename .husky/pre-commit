@@ -1,0 +1,4 @@
+pnpm changelog
+if ! git diff --quiet -- CHANGELOG.md; then
+  git add CHANGELOG.md
+fi
