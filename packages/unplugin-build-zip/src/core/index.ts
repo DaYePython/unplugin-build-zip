@@ -19,6 +19,8 @@ export const unpluginFactory: UnpluginFactory<Options | undefined> = (options = 
 
   let outDir = 'dist'
   let root = process.cwd()
+  let isViteBuild = false
+  let isWebpackBuild = false
 
   const doZip = async (outDirAbsolute: string): Promise<void> => {
     if (!fs.existsSync(outDirAbsolute)) {
@@ -61,12 +63,19 @@ export const unpluginFactory: UnpluginFactory<Options | undefined> = (options = 
   return {
     name: '@tonywater/unplugin-build-zip',
     vite: {
+      apply: 'build',
+
       configResolved(config: ResolvedConfig) {
         outDir = config.build.outDir || 'dist'
         root = config.root
+        isViteBuild = config.command === 'build'
       },
 
       async closeBundle() {
+        if (!isViteBuild) {
+          return
+        }
+
         const outDirAbsolute = path.isAbsolute(outDir)
           ? outDir
           : path.resolve(root, outDir)
@@ -77,6 +86,9 @@ export const unpluginFactory: UnpluginFactory<Options | undefined> = (options = 
 
     rollup: {
       async writeBundle(options) {
+        if (!options) {
+          return
+        }
         outDir = options.dir || 'dist'
         const outDirAbsolute = path.isAbsolute(outDir)
           ? outDir
@@ -87,9 +99,15 @@ export const unpluginFactory: UnpluginFactory<Options | undefined> = (options = 
     },
 
     webpack(compiler) {
+      isWebpackBuild = compiler.options.mode === 'production'
+
       compiler.hooks.done.tapPromise('@tonywater/unplugin-build-zip', async (stats) => {
         if (stats.hasErrors())
           return
+
+        if (!isWebpackBuild) {
+          return
+        }
 
         outDir = compiler.options.output.path || path.resolve(process.cwd(), 'dist')
         root = compiler.context || process.cwd()
