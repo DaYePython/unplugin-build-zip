@@ -4,13 +4,16 @@
   "packageManager": "pnpm@10.14.0",
   "scripts": {
     "build": "pnpm -r --filter=./packages/* run build",
+    "changelog": "node scripts/generate-changelog.mjs",
+    "changeset": "changeset",
+    "version-packages": "changeset version && pnpm changelog",
     "test": "vitest run",
     "lint": "eslint .",
-    "release": "bumpp package.json packages/unplugin-build-zip/package.json && pnpm -F @daye-cli/unplugin-build-zip publish"
+    "release": "pnpm build && changeset publish"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^4.13.2",
-    "bumpp": "10.4.1",
+    "@changesets/cli": "^2.31.0",
     "eslint": "^9.27.0",
     "typescript": "^5.8.3",
     "vitest": "^3.1.4"

@@ -137,6 +137,25 @@ pnpm dev
 pnpm play
 ```
 
+## 发布
+
+本仓库使用 [Changesets](https://github.com/changesets/changesets) 管理版本发布，并生成根目录 `CHANGELOG.md`。
+
+```bash
+# 记录一次待发布变更，按提示选择包、semver 类型并填写说明
+pnpm changeset
+
+# 根据 .changeset/*.md 更新包版本并生成/更新根目录 CHANGELOG.md
+pnpm version-packages
+
+# 构建并发布到 npm
+pnpm release
+```
+
+发布前请确认已经登录 npm，并在 `pnpm version-packages` 后检查生成的版本号和 changelog 内容。
+
+推送到 `master` 后，GitHub Actions 会使用 Changesets 自动创建版本 PR；合并版本 PR 后会构建并发布到 npm。
+
 ## License
 
 [MIT](./LICENSE)
