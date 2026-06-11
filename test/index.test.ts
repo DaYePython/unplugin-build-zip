@@ -1,6 +1,6 @@
+import { execSync } from 'node:child_process'
 import { existsSync, rmSync } from 'node:fs'
 import { resolve } from 'node:path'
-import { execSync } from 'node:child_process'
 import { describe, expect, it } from 'vitest'
 
 describe('unplugin-build-zip e2e tests', () => {
