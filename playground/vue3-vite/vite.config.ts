@@ -1,4 +1,4 @@
-import UnpluginBuildZip from '@tonywater/unplugin-build-zip/vite'
+import UnpluginBuildZip from '@daye-cli/unplugin-build-zip/vite'
 import vue from '@vitejs/plugin-vue'
 import { defineConfig } from 'vite'
 

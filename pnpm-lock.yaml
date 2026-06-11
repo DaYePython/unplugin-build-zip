@@ -88,7 +88,7 @@ importers:
         specifier: ^2.7.14
         version: 2.7.16
     devDependencies:
-      '@tonywater/unplugin-build-zip':
+      '@daye-cli/unplugin-build-zip':
         specifier: workspace:*
         version: link:../../packages/unplugin-build-zip
       '@vue/cli-service':
@@ -104,7 +104,7 @@ importers:
         specifier: ^3.4.0
         version: 3.5.30(typescript@5.8.3)
     devDependencies:
-      '@tonywater/unplugin-build-zip':
+      '@daye-cli/unplugin-build-zip':
         specifier: workspace:*
         version: link:../../packages/unplugin-build-zip
       '@vitejs/plugin-vue':

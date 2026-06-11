@@ -1,4 +1,4 @@
-const UnpluginBuildZip = require('@tonywater/unplugin-build-zip/webpack')
+const UnpluginBuildZip = require('@daye-cli/unplugin-build-zip/webpack')
 
 module.exports = {
   configureWebpack: {

@@ -6,7 +6,7 @@
     "build": "pnpm -r --filter=./packages/* run build",
     "test": "vitest run",
     "lint": "eslint .",
-    "release": "bumpp package.json packages/unplugin-build-zip/package.json && pnpm -F @tonywater/unplugin-build-zip publish"
+    "release": "bumpp package.json packages/unplugin-build-zip/package.json && pnpm -F @daye-cli/unplugin-build-zip publish"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^4.13.2",

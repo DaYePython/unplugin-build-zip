@@ -1,6 +1,6 @@
-# @tonywater/unplugin-build-zip
+# @daye-cli/unplugin-build-zip
 
-[![NPM version](https://img.shields.io/npm/v/@tonywater/unplugin-build-zip?color=a1b858&label=)](https://www.npmjs.com/package/@tonywater/unplugin-build-zip)
+[![NPM version](https://img.shields.io/npm/v/@daye-cli/unplugin-build-zip?color=a1b858&label=)](https://www.npmjs.com/package/@daye-cli/unplugin-build-zip)
 
 一个 [unplugin](https://github.com/unjs/unplugin) 插件，在构建完成后自动将产物目录压缩为 `.zip` 文件，并可选地将文件复制到系统剪切板、发送桌面通知。
 
@@ -14,11 +14,11 @@
 ## 安装
 
 ```bash
-npm i -D @tonywater/unplugin-build-zip
+npm i -D @daye-cli/unplugin-build-zip
 # or
-pnpm add -D @tonywater/unplugin-build-zip
+pnpm add -D @daye-cli/unplugin-build-zip
 # or
-yarn add -D @tonywater/unplugin-build-zip
+yarn add -D @daye-cli/unplugin-build-zip
 ```
 
 ## 使用
@@ -28,7 +28,7 @@ yarn add -D @tonywater/unplugin-build-zip
 
 ```ts
 // vite.config.ts
-import BuildZip from '@tonywater/unplugin-build-zip/vite'
+import BuildZip from '@daye-cli/unplugin-build-zip/vite'
 
 export default defineConfig({
   plugins: [
@@ -51,7 +51,7 @@ export default defineConfig({
 
 ```ts
 // rollup.config.js
-import BuildZip from '@tonywater/unplugin-build-zip/rollup'
+import BuildZip from '@daye-cli/unplugin-build-zip/rollup'
 
 export default {
   plugins: [
@@ -69,7 +69,7 @@ export default {
 // webpack.config.js
 module.exports = {
   plugins: [
-    require('@tonywater/unplugin-build-zip/webpack')({ /* options */ }),
+    require('@daye-cli/unplugin-build-zip/webpack')({ /* options */ }),
   ],
 }
 ```
@@ -83,7 +83,7 @@ module.exports = {
 // nuxt.config.ts
 export default defineNuxtConfig({
   modules: [
-    ['@tonywater/unplugin-build-zip/nuxt', { /* options */ }],
+    ['@daye-cli/unplugin-build-zip/nuxt', { /* options */ }],
   ],
 })
 ```
@@ -94,7 +94,7 @@ export default defineNuxtConfig({
 <summary>esbuild</summary><br>
 
 ```ts
-import BuildZip from '@tonywater/unplugin-build-zip/esbuild'
+import BuildZip from '@daye-cli/unplugin-build-zip/esbuild'
 // esbuild.config.js
 import { build } from 'esbuild'
 

@@ -61,7 +61,7 @@ export const unpluginFactory: UnpluginFactory<Options | undefined> = (options = 
   }
 
   return {
-    name: '@tonywater/unplugin-build-zip',
+    name: '@daye-cli/unplugin-build-zip',
     vite: {
       apply: 'build',
 
@@ -101,7 +101,7 @@ export const unpluginFactory: UnpluginFactory<Options | undefined> = (options = 
     webpack(compiler) {
       isWebpackBuild = compiler.options.mode === 'production'
 
-      compiler.hooks.done.tapPromise('@tonywater/unplugin-build-zip', async (stats) => {
+      compiler.hooks.done.tapPromise('@daye-cli/unplugin-build-zip', async (stats) => {
         if (stats.hasErrors())
           return
 
