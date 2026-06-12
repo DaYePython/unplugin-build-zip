@@ -1,10 +1,29 @@
 # @daye-cli/unplugin-build-zip
 
-## [0.1.12](https://github.com/DaYePython/unplugin-build-zip/compare/v0.1.11...v0.1.12) (2026-06-11)
+## [0.1.14](https://github.com/DaYePython/unplugin-build-zip/compare/v0.1.13...v0.1.14) (2026-06-12)
 
 ### Chores
 
-* adapt release workflow to Changesets and generate Angular-style root changelog
+* Add tag-triggered npm publishing with GitHub Release creation.
+
+## [0.1.13](https://github.com/DaYePython/unplugin-build-zip/compare/v0.1.12...v0.1.13) (2026-06-12)
+
+### Chores
+
+* add tag publish workflow and release v0.1.13 ([e7e29cf](https://github.com/DaYePython/unplugin-build-zip/commit/e7e29cfc0d1a5037228ec30142c35b1fe229b47b))
+
+## [0.1.12](https://github.com/DaYePython/unplugin-build-zip/compare/v0.1.11...v0.1.12) (2026-06-12)
+
+### Reverts
+
+* Revert "chore: add CHANGELOG.md and update release scripts" ([da942cd](https://github.com/DaYePython/unplugin-build-zip/commit/da942cdb62ee067a25d13375ee5fc8bbf035057b))
+
+### Chores
+
+* update .gitignore to exclude macOS .DS_Store files ([71ead8c](https://github.com/DaYePython/unplugin-build-zip/commit/71ead8ca826a530d4ce47dce9059e9248ba1f938))
+* add CHANGELOG.md and update release scripts ([8143d51](https://github.com/DaYePython/unplugin-build-zip/commit/8143d51f17f2029b5c668ff8809095c6d05ff00a))
+* adapt release flow to changesets ([cf4dd74](https://github.com/DaYePython/unplugin-build-zip/commit/cf4dd7454a05b2707cbf5cfc443dc383c2a6658d))
+* enhance release workflow with GitHub release creation ([792a45d](https://github.com/DaYePython/unplugin-build-zip/commit/792a45d75ba8b26b9cc7dcd4b5d4c9e209d1ffcd))
 
 ## [0.1.11](https://github.com/DaYePython/unplugin-build-zip/compare/v0.1.10...v0.1.11) (2026-06-11)
 
