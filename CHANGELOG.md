@@ -1,10 +1,16 @@
 # @daye-cli/unplugin-build-zip
 
+## [0.1.15](https://github.com/DaYePython/unplugin-build-zip/compare/v0.1.14...v0.1.15) (2026-06-12)
+
+### Chores
+
+* Fix GitHub Release creation in the Changesets release workflow.
+
 ## [0.1.14](https://github.com/DaYePython/unplugin-build-zip/compare/v0.1.13...v0.1.14) (2026-06-12)
 
 ### Chores
 
-* Add tag-triggered npm publishing with GitHub Release creation.
+* release v0.1.14 with tag workflow changelog ([c7d2efa](https://github.com/DaYePython/unplugin-build-zip/commit/c7d2efa88ec3a1d7511e497ed56c3556618876c5))
 
 ## [0.1.13](https://github.com/DaYePython/unplugin-build-zip/compare/v0.1.12...v0.1.13) (2026-06-12)
 
